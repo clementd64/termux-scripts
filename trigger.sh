@@ -1,7 +1,10 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-source "$HOME/.config/termux-scripts"
+BASE_DIR="$(dirname $0)"
+: ${CONFIG_DIR:=$BASE_DIR/config}
+source "$CONFIG_DIR/global"
+: ${CACHE_DIR:=$BASE_DIR/cache}
 
-for FILE in "$(dirname $0)"/bin/*; do
+for FILE in "$BASE_DIR"/bin/*; do
     $FILE
 done
